@@ -1,3 +1,13 @@
 .list {
-    
+   font-style: oblique;
+   text-decoration: underline dotted;
+   cursor: pointer;
+}
+
+.item {
+   cursor: pointer;
+}
+
+.active {
+   color: orange;
 }
