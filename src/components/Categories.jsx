@@ -19,7 +19,7 @@ const Categories = ({items}) => {
                     className={`${styles.item} ${activeItem === index ? styles.active : ''}`}
                     onClick={() => onSelectItem(index)}>{item}</li>)}
             </ul>
-            
+            <h3>{items[activeItem]}</h3>
         </div>
     )
 }
