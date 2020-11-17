@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './button.module.css';
 
-const Button = (props) => {
+const Button = () => {
 
     const onButtonClick = () => {
-        console.log(props.click);
+       
     }
 
     return (
-        <button className={styles.button} onClick={onButtonClick}>Button</button>
+        <button className={styles.button} onClick={onButtonClick}>Корзина</button>
     )
 }
 

@@ -2,8 +2,11 @@
     margin: 0;
     padding: 0;
 }
+
 .main {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
 }
+

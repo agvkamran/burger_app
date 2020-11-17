@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5b461;
+    margin: 150px;
+}
+
+.app_container {
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 25px;
+}

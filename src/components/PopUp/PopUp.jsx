@@ -3,7 +3,6 @@ import styles from './PopUp.module.css'
 
 
 const PopUp = ({ items }) => {
-
     const [show, toggle] = React.useState(false);
     const toggleVisiblePopUp = () => {
         toggle(!show);
@@ -19,7 +18,7 @@ const PopUp = ({ items }) => {
         document.body.addEventListener('click', handleClickOutside);
     }, [])
     
-    const sortRef = React.useRef();
+    // const sortRef = React.useRef();
 
     const [activeItem, setActiveItem] = React.useState(0);
     
@@ -28,13 +27,13 @@ const PopUp = ({ items }) => {
     }
 
     return (
-        <div>
+        <div className={styles.sort_container}> 
             <div onClick={toggleVisiblePopUp} className={styles.sort}>
-                <b>Сортировать по: </b>
+                <b className={styles.sort_by}>Сортировать по: </b>
                 <span className={`${styles.list} ${styles.active}`} id={"popUp"}>{items[activeItem]}</span>
             </div>
             {show && (
-            <div>
+            <div className={styles.pop_up_list}>
                 <ul>
                     {
                     items.map((item, index) => <li className={`${styles.item} ${activeItem === index ? styles.active : ''}`}
@@ -44,7 +43,7 @@ const PopUp = ({ items }) => {
             </div>
             )
             }
-            </div>
+        </div>
     )
 }
 

@@ -7,7 +7,6 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './Pages/Home'
 import Cart from './Pages/Cart';
-import {Link} from 'react-router-dom';
 
 function App() {
   const [burgers, setBurgers] = React.useState([]);
@@ -26,8 +25,8 @@ function App() {
   
   return (
     <BrowserRouter>
-      <div>
-        <Link to='/'><Header /></Link>
+      <div className="app_container">
+        <Header />
         <Route path='/' render={() => <Home items={burgers} />} exact />
         <Route path='/cart' component={Cart} exact /> 
           {/* <Header /> */}
@@ -35,7 +34,7 @@ function App() {
          <Categories onClickItem={(item) => {console.log(item)}} items={['Гамбургер','Чизбургер','Чикенбургер','Фишбургер','Классический','Чёрный бургер']} />
         <PopUp items={['популярности','цене','алфавиту']}/> */}
       </div>
- </BrowserRouter>
+    </BrowserRouter>
   );
 }
 

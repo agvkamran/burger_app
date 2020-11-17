@@ -1,49 +1,47 @@
 import React from 'react';
 import styles from './BurgerBlock.module.css';
 
-const BurgerBlock = ({name, imageUrl, price, sizes, types}) => {
+const BurgerBlock = ({name, imageUrl, price, sizes}) => {
+    const possibleSizes = ["S", "M", "L"];
 
-    const [activeSize, setActiveSize] = React.useState(null);
+    // sizes = ["S", "L"]
+    // prices = [4, 6]
+
+    const [activeSize, setActiveSize] = React.useState([
+        possibleSizes.findIndex((el, idx, arr) => sizes.includes(el)), 
+        possibleSizes.find((el, idx, arr) => sizes.includes(el))
+    ]);
+    // let activeBurgerSizeName = possibleSizes[activeSize];
 
     const onSelectSize = (index) => {
-        setActiveSize(index);
+        setActiveSize([index, possibleSizes[index]]);
     }
 
-
-    const [activeType, setActiveType] = React.useState(null);
-
-    const onSelectType = (index) => {
-        setActiveType(index);
-    }
-    
-
+    // console.log(sizes.findIndex((el, idx, arr) => el === activeBurgerSizeName));
     return (
         <div className={styles.container}>
-            <div className={styles.content__top}>
-                <img className={styles.burger__img} src={imageUrl}/>
+            <div className={styles.content_top}>
+                <img className={styles.burger_img} src={imageUrl}/>
             </div>
-            <div className={styles.content__title}>
+            <div className={styles.content_title}>
                 <h3>{name}</h3>
             </div>
-            <div className={styles.all__content__list}>
-                <div className={styles.content__list__top}>
-                    {
-                        types.map((type, index) => <li key={`${index}_${type}`}
-                        onClick={() => onSelectType(index)}
-                        className={`${styles.types} ${activeType === index ? styles.active : ''}`}>
-                            {type}</li>)
-                    }
-                </div>
-                <div className={styles.content__list__bottom}>
+            <div className={styles.all_content_list}>
+                <div className={styles.content_list_size}>
                     <ul>
-                        {sizes.map((size, index) => <li key={`${size}_${index}`}
+                        {possibleSizes.map((size, index) => <li key={`${size}_${index}`}
                         onClick={() => onSelectSize(index)}
-                        className={`${styles.items} ${activeSize === index ? styles.active : '' }`}>
+                        className={`${styles.items} ${activeSize[0] === index ? styles.active : ''} ${sizes.includes(size) ? '' : styles.disabled_size}`}>
                             {size}</li>)}
                     </ul>
                 </div>
-                 <div className={styles.item__price}>
-                     <h2>{price + ' ₼'}</h2>
+                <div class={styles.content_footer}>
+                    <div className={styles.item_price}>
+                        <h2>{price[sizes.findIndex((el, idx, arr) => el === activeSize[1])] + ' ₼'}</h2>
+                    </div>
+                    <div className={styles.button_add}>
+                        <button>+ Добавить</button>
+                    </div>
                 </div>
             </div>
         </div>

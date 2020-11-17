@@ -1,3 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    min-height: 150px;
+    justify-content: space-around;
+}
 .item {
     list-style-type: none;
     display: inline-block;
@@ -6,10 +18,11 @@
     background-color: slategray;
     border-radius: 100px;
     color: white;
-    min-width: 100px;
+    min-width: 130px;
     text-align: center;
     cursor: pointer;
 }
+
 .active {
     background-color: black;
     list-style-type: none;
@@ -18,7 +31,7 @@
     margin: 15px;
     border-radius: 100px;
     color: white;
-    min-width: 100px;
+    min-width: 130px;
     text-align: center;
     cursor: pointer;
 }
