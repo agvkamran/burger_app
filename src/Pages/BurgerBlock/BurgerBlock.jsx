@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './BurgerBlock.module.css';
+import PropTypes from 'prop-types';
 
 const BurgerBlock = ({name, imageUrl, price, sizes}) => {
     const possibleSizes = ["S", "M", "L"];
@@ -35,7 +36,7 @@ const BurgerBlock = ({name, imageUrl, price, sizes}) => {
                             {size}</li>)}
                     </ul>
                 </div>
-                <div class={styles.content_footer}>
+                <div className={styles.content_footer}>
                     <div className={styles.item_price}>
                         <h2>{price[sizes.findIndex((el, idx, arr) => el === activeSize[1])] + ' ₼'}</h2>
                     </div>
@@ -47,5 +48,11 @@ const BurgerBlock = ({name, imageUrl, price, sizes}) => {
         </div>
     )
 }
+
+BurgerBlock.propTypes = {
+    name: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    sizes: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default BurgerBlock;

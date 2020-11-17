@@ -7,21 +7,28 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './Pages/Home'
 import Cart from './Pages/Cart';
+import axios from 'axios';
 
 function App() {
   const [burgers, setBurgers] = React.useState([]);
   
+  // React.useEffect(() => {
+  //   fetch('http://localhost:3000/db.json')
+  //   .then((response) => {
+  //     return response.json();
+  //   })
+  //   .then(jsonObject => {
+  //     setBurgers(jsonObject.pizzas);
+  //   });
+  // }, []);
+
   React.useEffect(() => {
-    fetch('http://localhost:3000/db.json')
-    .then((response) => {
-      return response.json();
-    })
-    .then(jsonObject => {
-      setBurgers(jsonObject.pizzas);
+    axios.get('http://localhost:3000/db.json')
+    .then(({data}) => {
+      // console.log(data);
+      setBurgers(data.pizzas);
     });
   }, []);
-
-  // console.log(burgers);
   
   return (
     <BrowserRouter>
