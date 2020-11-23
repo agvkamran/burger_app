@@ -23,7 +23,10 @@ const Categories = ({items}) => {
                 </ul>
             </div>
             {/* <h3>{items[activeItem]}</h3> */}
-            <PopUp items={['популярности','цене','алфавиту']}/>
+            <PopUp items={[
+                {name:'популярности',type: 'popular'},
+                {name: 'цене', type:'price'},
+                {name: 'алфавиту', type: 'alphabet'}]}/>
         </div>
     )
 }

@@ -27,7 +27,6 @@
     padding: 5px;
     border-radius: 10px;
     width: 250px;
-    height: 110px;
 }
 
 .content_list_type {
@@ -79,13 +78,16 @@
     border-radius: 5px;
 }
 
-button {
+.button_footer {
     background-color: white;
     border: 1px solid orange;
     color: orange;
     border-radius: 25px;
     padding: 15px;
+    outline: none;
+    cursor: pointer;
 }
+
 
 .disabled_size {
     opacity: 0.3;

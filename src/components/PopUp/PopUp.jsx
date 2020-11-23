@@ -26,18 +26,20 @@ const PopUp = ({ items }) => {
         setActiveItem(index);
     }
 
+    // filters(state, setSortBy("популярности"))
+
     return (
         <div className={styles.sort_container}> 
             <div onClick={toggleVisiblePopUp} className={styles.sort}>
                 <b className={styles.sort_by}>Сортировать по: </b>
-                <span className={`${styles.list} ${styles.active}`} id={"popUp"}>{items[activeItem]}</span>
+                <span className={`${styles.list} ${styles.active}`} id={"popUp"}>{items[activeItem].name}</span>
             </div>
             {show && (
             <div className={styles.pop_up_list}>
                 <ul>
                     {
-                    items.map((item, index) => <li className={`${styles.item} ${activeItem === index ? styles.active : ''}`}
-                        key={`${item}_${index}`} onClick={() => onSelectItem(index)}>{item}</li>)  
+                    items.map((obj, index) => <li className={`${styles.item} ${activeItem === index ? styles.active : ''}`}
+                        key={`${obj.type}_${index}`} onClick={() => onSelectItem(index)}>{obj.name}</li>)  
                     }
                 </ul>
             </div>
@@ -48,3 +50,6 @@ const PopUp = ({ items }) => {
 }
 
 export default PopUp;
+
+
+

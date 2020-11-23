@@ -41,7 +41,7 @@ const BurgerBlock = ({name, imageUrl, price, sizes}) => {
                         <h2>{price[sizes.findIndex((el, idx, arr) => el === activeSize[1])] + ' ₼'}</h2>
                     </div>
                     <div className={styles.button_add}>
-                        <button>+ Добавить</button>
+                        <button className={styles.button_footer}>+ Добавить</button>
                     </div>
                 </div>
             </div>

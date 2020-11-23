@@ -6,10 +6,24 @@
 .button {
     background-color: orange;
     border: none;
-    border-radius: 30px;
+    border-radius: 40px 0;
     color: white;
     width: 160px;
     height: 60px;
     font-size: 22px;
     margin-right: 25px;
+    outline: none;
+    cursor: pointer;
+}
+.active {
+    background-color: #fee140;
+    border: none;
+    border-radius: 0 40px;
+    color: white;
+    width: 160px;
+    height: 60px;
+    font-size: 22px;
+    margin-right: 25px;
+    outline: none;
+    cursor: pointer;
 }
